@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objeto Date en JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      color: #333;
+      text-align: center;
+      padding: 30px;
+    }
+    #reloj {
+      font-size: 2em;
+      margin-top: 20px;
+      color: #0077cc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ejemplo del Objeto Date en JavaScript</h1>
+  <p>Este ejemplo muestra la hora y fecha actual actualizándose cada segundo.</p>
+  
+  <div id="reloj"></div>
+
+  <script>
+    function actualizarReloj() {
+      const fecha = new Date();
+      const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const hora = fecha.toLocaleTimeString();
+      const fechaTexto = fecha.toLocaleDateString('es-ES', opciones);
+      document.getElementById("reloj").innerHTML = `${fechaTexto} <br> ${hora}`;
+    }
+
+    setInterval(actualizarReloj, 1000);
+    actualizarReloj(); // Mostrar inmediatamente al cargar
+  </script>
+</body>
+</html>
